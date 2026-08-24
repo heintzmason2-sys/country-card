@@ -5,8 +5,9 @@ const inputValue = document.getElementById("search-country");
 
 
 bttn.addEventListener("click", async function(){
+    countryContainer.innerHTML = "";
     try{
-        const response = await fetch(`https://countries.dev/name/${inputValue.value}`)
+        const response = await fetch(`https://countries.dev/name/${encodeURIComponent(inputValue.value)}`)
         if(!response.ok){
             throw new Error("Country Not Found!")
         }
@@ -27,10 +28,12 @@ bttn.addEventListener("click", async function(){
     
 
             const currency = document.createElement("p")
-            currency.textContent = `Currency: ${data[i].currencies[0].name}`
+            const currencyData = data[i].currencies?.[0];
+
+            currency.textContent = `Currency: ${currencyData?.name || "Not Available"}`;
 
             const currencySymbol = document.createElement("p")
-            currencySymbol.textContent = `Currency Symbol: ${data[i].currencies[0].symbol}`
+            currencySymbol.textContent = `Currency Symbol: ${currencyData?.symbol || "Not Available"}`;
 
             const population = document.createElement("p")
             population.textContent = `Population: ${data[i].population}`
