@@ -6,13 +6,31 @@
     </head>
 
     <body>
+        <h1 id="page-title">Country Card</h1>
+        <p id="page-subtitle">Explore Countries Around the World</p>
+        <div id="search-controls">
         <label for="search-country">Search For Country:</label>
         <input type="text" id="search-country" name="search-country">
         <button type="button" id="search-button">Search</button>
         <button type="button" id="clear-button">Clear Results</button>
-
+        </div>
         
         <div id="country-container"></div>
+        <div id="country-modal">
+            <div id="country-modal-content">
+                <button type="button" id="close-country-modal">X</button>
+                <img id="modal-flag">
+                <h2 id="modal-country-name"></h2>
+                <p id="modal-region"></p>
+                <p id="modal-subregion"></p>
+                <p id="modal-native-name"></p>
+                <p id="modal-demonym"></p>
+                <p id="modal-area"></p>
+                <p id="modal-density"></p>
+                <p id="modal-timezone"></p>
+                <p id="modal-language"></p>
+            </div>
+        </div>
       <script src="app.js"></script>
     </body>
 </html>
